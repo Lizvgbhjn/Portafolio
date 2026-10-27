@@ -16,4 +16,4 @@
 ![Estadísticas](https://github-readme-stats.vercel.app/api?username=Lizvgbhjn&show_icons=true)
 
 ## 🌐 Mi portafolio
-https://Lizvgbhjn.github.io/portafolio/
+https://lizvgbhjn.github.io/portafolio/
