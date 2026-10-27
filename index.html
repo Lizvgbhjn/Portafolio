@@ -5,236 +5,395 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Lizbeth Ramos | Portafolio</title>
+
   <style>
     :root {
-      --bg: #080f1f;
-      --surface: #111e33;
-      --border: #26364e;
-      --primary: #38bdf8;
-      --text: #f1f5f9;
-      --muted: #94a3b8;
+      --primary: #2563eb;
+      --primary-light: #dbeafe;
+      --background: #f8fafc;
+      --white: #ffffff;
+      --text: #1e293b;
+      --muted: #64748b;
+      --border: #e2e8f0;
     }
 
-    * { box-sizing: border-box; }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-    html { scroll-behavior: smooth; }
+    html {
+      scroll-behavior: smooth;
+    }
 
     body {
-      margin: 0;
       font-family: 'Segoe UI', Arial, sans-serif;
-      background: var(--bg);
+      background: var(--background);
       color: var(--text);
       line-height: 1.7;
     }
 
-    a { text-decoration: none; color: inherit; }
+    a {
+      text-decoration: none;
+    }
 
     .container {
-      width: min(1100px, 90%);
+      width: 90%;
+      max-width: 1100px;
       margin: auto;
     }
 
+    /* BARRA DE NAVEGACIÓN */
+
     nav {
+      background: white;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .nav-container {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 22px 0;
-      flex-wrap: wrap;
-      gap: 15px;
+      padding: 18px 0;
     }
 
     .logo {
-      color: var(--primary);
-      font-size: 24px;
+      font-size: 26px;
       font-weight: 800;
+      color: var(--primary);
     }
 
     .nav-links {
       display: flex;
       gap: 25px;
-      flex-wrap: wrap;
     }
 
     .nav-links a {
-      color: var(--muted);
-      transition: .3s;
+      color: var(--text);
+      font-weight: 500;
+      transition: 0.3s;
     }
 
-    .nav-links a:hover { color: var(--primary); }
+    .nav-links a:hover {
+      color: var(--primary);
+    }
+
+    /* PRESENTACIÓN PRINCIPAL */
 
     .hero {
-      min-height: 480px;
-      display: flex;
-      align-items: center;
-      background: radial-gradient(
-        ellipse at 80% 40%,
-        #12355a 0%, #080f1f 65%
+      background: linear-gradient(
+        135deg,
+        #eff6ff,
+        #ffffff,
+        #e0f2fe
       );
+      padding: 110px 20px;
+      text-align: center;
     }
 
-    .hero-content { padding: 80px 0; }
-
-    .tag {
+    .hero-badge {
       display: inline-block;
-      color: var(--primary);
-      background: #12344c;
-      padding: 6px 16px;
+      background: #dbeafe;
+      color: #1d4ed8;
+      padding: 8px 20px;
       border-radius: 30px;
       font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 25px;
     }
 
-    h1 {
-      font-size: clamp(42px, 7vw, 76px);
-      line-height: 1.15;
-      margin: 20px 0;
-      letter-spacing: -2px;
+    .hero h1 {
+      font-size: clamp(40px, 6vw, 65px);
+      line-height: 1.2;
+      margin-bottom: 20px;
     }
 
-    h1 span { color: var(--primary); }
+    .hero h1 span {
+      color: var(--primary);
+    }
+
+    .hero h2 {
+      font-size: 23px;
+      color: #475569;
+      font-weight: 500;
+      margin-bottom: 20px;
+    }
 
     .hero p {
+      max-width: 620px;
+      margin: auto;
       color: var(--muted);
-      max-width: 570px;
-      font-size: 18px;
+      font-size: 17px;
     }
 
     .buttons {
       display: flex;
+      justify-content: center;
       gap: 15px;
-      margin-top: 30px;
+      margin-top: 35px;
       flex-wrap: wrap;
     }
 
     .btn {
       display: inline-block;
-      padding: 12px 25px;
-      border-radius: 9px;
+      padding: 13px 28px;
+      border-radius: 10px;
       font-weight: 600;
-      transition: .3s;
+      transition: 0.3s;
     }
 
     .btn-primary {
       background: var(--primary);
-      color: #07111f;
+      color: white;
     }
 
-    .btn-outline {
-      border: 1px solid var(--primary);
+    .btn-secondary {
+      background: white;
       color: var(--primary);
+      border: 2px solid var(--primary);
     }
 
     .btn:hover {
       transform: translateY(-4px);
-      box-shadow: 0 8px 25px #38bdf830;
+      box-shadow: 0 8px 20px rgba(37,99,235,0.18);
     }
 
-    section { padding: 75px 0; }
+    /* SECCIONES */
+
+    section {
+      padding: 80px 0;
+      scroll-margin-top: 80px;
+    }
 
     .section-title {
       text-align: center;
-      font-size: 34px;
+      font-size: 35px;
       margin-bottom: 12px;
     }
 
-    .section-title span { color: var(--primary); }
-
-    .section-subtitle {
-      color: var(--muted);
-      text-align: center;
-      margin-bottom: 40px;
+    .section-title span {
+      color: var(--primary);
     }
 
-    .about {
-      max-width: 760px;
+    .section-subtitle {
+      text-align: center;
+      color: var(--muted);
+      margin-bottom: 45px;
+    }
+
+    /* SOBRE MÍ */
+
+    .about-box {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 40px;
+      max-width: 850px;
       margin: auto;
       text-align: center;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.04);
+    }
+
+    .about-box p {
       color: var(--muted);
       font-size: 17px;
     }
 
+    /* TECNOLOGÍAS */
+
+    .technologies {
+      background: #eff6ff;
+    }
+
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 22px;
+      grid-template-columns: repeat(
+        auto-fit,
+        minmax(220px, 1fr)
+      );
+      gap: 25px;
     }
 
     .card {
-      background: var(--surface);
+      background: white;
       border: 1px solid var(--border);
       border-radius: 16px;
-      padding: 28px;
-      transition: .3s;
+      padding: 30px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.04);
+      transition: 0.3s;
     }
 
     .card:hover {
-      transform: translateY(-7px);
-      border-color: var(--primary);
-      box-shadow: 0 15px 35px #0004;
+      transform: translateY(-8px);
+      box-shadow: 0 15px 30px rgba(37,99,235,0.12);
+      border-color: #93c5fd;
     }
 
-    .tech-card { text-align: center; }
+    .tech-card {
+      text-align: center;
+    }
 
     .tech-icon {
-      font-size: 35px;
-      margin-bottom: 10px;
+      width: 70px;
+      height: 70px;
+      background: var(--primary-light);
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 32px;
+      margin: 0 auto 18px;
     }
 
-    .card h3 { margin: 10px 0; }
-
-    .card p { color: var(--muted); }
-
-    .project-label {
-      font-size: 13px;
-      color: var(--primary);
-      font-weight: bold;
-      letter-spacing: 1px;
+    .tech-card h3 {
+      font-size: 19px;
+      margin-bottom: 8px;
     }
+
+    .tech-card p {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    /* PROYECTOS */
 
     .project-card {
       display: flex;
       flex-direction: column;
     }
 
-    .project-card p { flex: 1; }
+    .project-label {
+      display: inline-block;
+      color: var(--primary);
+      background: var(--primary-light);
+      padding: 5px 13px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: bold;
+      align-self: flex-start;
+      margin-bottom: 18px;
+    }
+
+    .project-card h3 {
+      font-size: 22px;
+      margin-bottom: 12px;
+    }
+
+    .project-card p {
+      color: var(--muted);
+      font-size: 15px;
+      flex: 1;
+    }
 
     .project-link {
       color: var(--primary);
       font-weight: 600;
-      margin-top: 15px;
       display: inline-block;
+      margin-top: 25px;
     }
+
+    .project-link:hover {
+      text-decoration: underline;
+    }
+
+    /* GITHUB */
+
+    .github-section {
+      background: #eff6ff;
+    }
+
+    .github-box {
+      background: white;
+      padding: 45px;
+      border-radius: 20px;
+      max-width: 750px;
+      margin: auto;
+      text-align: center;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.05);
+    }
+
+    .github-box h3 {
+      font-size: 25px;
+      margin-bottom: 15px;
+    }
+
+    .github-box p {
+      color: var(--muted);
+      margin-bottom: 25px;
+    }
+
+    /* CONTACTO */
 
     .contact {
       text-align: center;
-      background: #0d192c;
-      border-top: 1px solid var(--border);
     }
 
-    .contact p { color: var(--muted); }
+    .contact p {
+      color: var(--muted);
+      max-width: 550px;
+      margin: auto;
+    }
+
+    /* PIE DE PÁGINA */
 
     footer {
-      text-align: center;
-      padding: 25px;
-      color: var(--muted);
+      background: white;
       border-top: 1px solid var(--border);
+      text-align: center;
+      padding: 30px;
+      color: var(--muted);
       font-size: 14px;
     }
 
-    @media (max-width: 600px) {
-      nav { justify-content: center; }
-      .nav-links { justify-content: center; gap: 14px; }
-      .hero { min-height: 400px; text-align: center; }
-      .hero p { margin: auto; }
-      .buttons { justify-content: center; }
-      section { padding: 55px 0; }
+    /* DISEÑO RESPONSIVE */
+
+    @media (max-width: 700px) {
+      .nav-container {
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+      }
+
+      .hero {
+        padding: 80px 20px;
+      }
+
+      .hero h1 {
+        font-size: 42px;
+      }
+
+      section {
+        padding: 55px 0;
+      }
+
+      .about-box {
+        padding: 25px;
+      }
+
+      .section-title {
+        font-size: 29px;
+      }
     }
   </style>
 </head>
+
 <body>
 
-  <div class="container">
-    <nav>
-      <a class="logo" href="#">LR<span style="color:white">.</span></a>
+  <!-- NAVEGACIÓN -->
+
+  <nav>
+    <div class="container nav-container">
+      <a href="#inicio" class="logo">LR.</a>
+
       <div class="nav-links">
         <a href="#inicio">Inicio</a>
         <a href="#sobre-mi">Sobre mí</a>
@@ -242,55 +401,94 @@
         <a href="#proyectos">Proyectos</a>
         <a href="#contacto">Contacto</a>
       </div>
-    </nav>
-  </div>
+    </div>
+  </nav>
+
+  <!-- INICIO -->
 
   <header class="hero" id="inicio">
-    <div class="container hero-content">
-      <span class="tag">Disponible para aprender y colaborar</span>
-      <h1>Hola, soy<br><span>Lizbeth Ramos.</span></h1>
+    <div class="container">
+
+      <span class="hero-badge">
+        ✨ Bienvenido a mi portafolio
+      </span>
+
+      <h1>
+        Hola, soy <span>Lizbeth Ramos</span>
+      </h1>
+
+      <h2>Desarrolladora de Software</h2>
+
       <p>
-        Estudiante de Ingeniería de Software apasionada
-        por el desarrollo web, las bases de datos y la
-        creación de soluciones tecnológicas.
+        Estudiante de Ingeniería de Software,
+        apasionada por la tecnología, el desarrollo
+        web y la creación de soluciones innovadoras.
       </p>
+
       <div class="buttons">
-        <a class="btn btn-primary" href="#proyectos">
+        <a href="#proyectos" class="btn btn-primary">
           Ver mis proyectos
         </a>
-        <a class="btn btn-outline"
-           href="https://github.com/Lizvgbhjn"
-           target="_blank" rel="noopener noreferrer">
+
+        <a href="https://github.com/Lizvgbhjn"
+           target="_blank"
+           rel="noopener noreferrer"
+           class="btn btn-secondary">
           Mi GitHub ↗
         </a>
       </div>
+
     </div>
   </header>
 
   <main>
+
+    <!-- SOBRE MÍ -->
+
     <section id="sobre-mi">
       <div class="container">
-        <h2 class="section-title">Sobre <span>mí</span></h2>
-        <p class="section-subtitle">Conoce un poco más sobre mí</p>
-        <p class="about">
-          Soy estudiante de la carrera de Software en la
-          Universidad Técnica de Ambato. Me interesa
-          desarrollar aplicaciones funcionales, trabajar
-          en equipo y mejorar constantemente mis
-          habilidades de programación. Disfruto aprender
-          nuevas tecnologías y enfrentar desafíos.
+
+        <h2 class="section-title">
+          Sobre <span>mí</span>
+        </h2>
+
+        <p class="section-subtitle">
+          Un poco acerca de mi formación e intereses
         </p>
+
+        <div class="about-box">
+          <p>
+            Soy estudiante de la carrera de Software
+            en la Universidad Técnica de Ambato.
+            Me interesa el desarrollo de aplicaciones
+            web, el diseño de bases de datos y la
+            creación de sistemas informáticos.
+
+            Disfruto trabajar en equipo, aprender
+            nuevas tecnologías y mejorar mis
+            conocimientos mediante proyectos prácticos.
+          </p>
+        </div>
+
       </div>
     </section>
 
-    <section id="tecnologias">
+    <!-- TECNOLOGÍAS -->
+
+    <section class="technologies" id="tecnologias">
       <div class="container">
-        <h2 class="section-title">Mis <span>tecnologías</span></h2>
+
+        <h2 class="section-title">
+          Mis <span>tecnologías</span>
+        </h2>
+
         <p class="section-subtitle">
-          Herramientas y lenguajes que utilizo
+          Herramientas y lenguajes de programación
+          que utilizo
         </p>
 
         <div class="grid">
+
           <div class="card tech-card">
             <div class="tech-icon">🌐</div>
             <h3>HTML5</h3>
@@ -300,13 +498,13 @@
           <div class="card tech-card">
             <div class="tech-icon">🎨</div>
             <h3>CSS3</h3>
-            <p>Diseño e interfaces modernas</p>
+            <p>Diseño de interfaces web</p>
           </div>
 
           <div class="card tech-card">
             <div class="tech-icon">⚡</div>
             <h3>JavaScript</h3>
-            <p>Interactividad web</p>
+            <p>Interactividad y funcionalidades</p>
           </div>
 
           <div class="card tech-card">
@@ -324,90 +522,172 @@
           <div class="card tech-card">
             <div class="tech-icon">💻</div>
             <h3>GitHub</h3>
-            <p>Colaboración y repositorios</p>
+            <p>Repositorios y colaboración</p>
           </div>
+
         </div>
       </div>
     </section>
+
+    <!-- PROYECTOS -->
 
     <section id="proyectos">
       <div class="container">
-        <h2 class="section-title">Mis <span>proyectos</span></h2>
+
+        <h2 class="section-title">
+          Mis <span>proyectos</span>
+        </h2>
+
         <p class="section-subtitle">
-          Algunos trabajos desarrollados durante mi formación
+          Proyectos académicos realizados
+          durante mi formación
         </p>
 
         <div class="grid">
+
           <article class="card project-card">
-            <span class="project-label">PROYECTO 01</span>
+            <span class="project-label">
+              PROYECTO 01
+            </span>
+
             <h3>CineScope</h3>
+
             <p>
-              Proyecto académico de una plataforma de
-              películas, desarrollado en equipo utilizando
-              tecnologías web y control de versiones con Git.
+              Plataforma web de películas desarrollada
+              como proyecto académico, utilizando
+              tecnologías web y trabajo colaborativo
+              mediante Git y GitHub.
             </p>
-            <a class="project-link"
-               href="https://github.com/Lizvgbhjn"
-               target="_blank" rel="noopener noreferrer">
-              Ver en GitHub ↗
+
+            <a href="https://github.com/Lizvgbhjn"
+               target="_blank"
+               rel="noopener noreferrer"
+               class="project-link">
+              Ver proyecto ↗
             </a>
           </article>
 
           <article class="card project-card">
-            <span class="project-label">PROYECTO 02</span>
+            <span class="project-label">
+              PROYECTO 02
+            </span>
+
             <h3>Gestión de Pasajes</h3>
+
             <p>
-              Sistema académico para la gestión y venta
-              de pasajes de buses interprovinciales,
-              con funcionalidades de consulta de viajes.
+              Sistema para la gestión y venta de
+              pasajes interprovinciales del Ecuador,
+              desarrollado mediante herramientas
+              de programación y control de versiones.
             </p>
-            <a class="project-link"
-               href="https://github.com/Lizvgbhjn"
-               target="_blank" rel="noopener noreferrer">
-              Ver en GitHub ↗
+
+            <a href="https://github.com/Lizvgbhjn"
+               target="_blank"
+               rel="noopener noreferrer"
+               class="project-link">
+              Ver proyecto ↗
             </a>
           </article>
 
           <article class="card project-card">
-            <span class="project-label">PROYECTO 03</span>
-            <h3>Prácticas de Bases de Datos</h3>
+            <span class="project-label">
+              PROYECTO 03
+            </span>
+
+            <h3>Bases de Datos</h3>
+
             <p>
-              Ejercicios de modelado relacional,
-              consultas SQL y gestión de información
+              Desarrollo de bases de datos relacionales,
+              consultas SQL, modelado de entidades
+              y administración de información
               mediante PostgreSQL.
             </p>
-            <a class="project-link"
-               href="https://github.com/Lizvgbhjn"
-               target="_blank" rel="noopener noreferrer">
-              Explorar repositorios ↗
+
+            <a href="https://github.com/Lizvgbhjn"
+               target="_blank"
+               rel="noopener noreferrer"
+               class="project-link">
+              Ver repositorios ↗
             </a>
           </article>
+
         </div>
       </div>
     </section>
+
+    <!-- GITHUB -->
+
+    <section class="github-section" id="github">
+      <div class="container">
+
+        <h2 class="section-title">
+          Mi actividad en <span>GitHub</span>
+        </h2>
+
+        <p class="section-subtitle">
+          Explora mis repositorios y contribuciones
+        </p>
+
+        <div class="github-box">
+
+          <h3>💻 GitHub</h3>
+
+          <p>
+            En mi perfil puedes encontrar proyectos
+            académicos, prácticas de programación
+            y repositorios de desarrollo de software.
+          </p>
+
+          <a href="https://github.com/Lizvgbhjn"
+             target="_blank"
+             rel="noopener noreferrer"
+             class="btn btn-primary">
+            Visitar mi perfil ↗
+          </a>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACTO -->
 
     <section class="contact" id="contacto">
       <div class="container">
+
         <h2 class="section-title">
           ¿Trabajamos <span>juntos?</span>
         </h2>
+
         <p>
-          Me interesa aprender, colaborar y participar
-          en nuevos proyectos de desarrollo de software.
+          Me interesa participar en nuevos proyectos,
+          compartir conocimientos y continuar
+          aprendiendo sobre desarrollo de software.
         </p>
-        <div class="buttons" style="justify-content:center">
-          <a class="btn btn-primary"
-             href="https://github.com/Lizvgbhjn"
-             target="_blank" rel="noopener noreferrer">
-            Visitar mi GitHub ↗
+
+        <div class="buttons">
+          <a href="https://github.com/Lizvgbhjn"
+             target="_blank"
+             rel="noopener noreferrer"
+             class="btn btn-primary">
+            Contactar por GitHub ↗
           </a>
         </div>
+
       </div>
     </section>
+
   </main>
 
+  <!-- FOOTER -->
+
   <footer>
-    <p>© 2026 Lizbeth Ramos | Desarrollado con HTML y CSS</p>
+    <p>
+      © 2026 Lizbeth Ramos |
+      Portafolio Personal
+    </p>
+    <p>
+      Desarrollado con HTML y CSS 💙
+    </p>
   </footer>
 
 </body>
